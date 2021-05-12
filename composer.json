@@ -1,0 +1,17 @@
+{
+    "name": "ladis/cookiemanager",
+    "description": "Manage cookies",
+    "license": "MIT",
+    "authors": [{
+        "name": "Claudye",
+        "email": "dev.claudy@gmail.com"
+    }],
+    "require": {
+        "symfony/var-dumper": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ladis\\": "src/"
+        }
+    }
+}
