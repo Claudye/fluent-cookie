@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | Fluent-Cookie</title>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/prism.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container">
+            <a class="navbar-brand" href="">Claudye</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Acceuil</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Librairies
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Fluent-cookie</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Fluent-cookie / Documentation</h1>
+                <h3>Commencer</h3>
+                <p> Fluent-cookie est un gestionnaire de cookie qui vous permettra de gérer les cookies des manières les plus simples possibles. Il apporte un plus à la sécurité de vos cookies. Toutes les données de vos cookies sont chiffrées.
+                    <br> Vous n'avez pas encore télécharger ? <a href="https://github.com/Claudye/fluent-cookie/archive/refs/heads/main.zip" class="btn btn-primary">Télécharger</a>
+                </p>
+
+                <h3>Pourquoi Fluent-Cookie ?</h3>
+                <p>
+                    Avec la fonction native <a href="https://www.php.net/manual/fr/function.setcookie.php">setcookie</a> de PHP, vous pouvez déjà faire toutes vos différentes opérations sur les cookies, mais imaginez qu'un jour vous avez envie de renommer
+                    un cookie existant, le supprimer directement, ou vous voulez savoir quand il a été créé, cela vous demanderait plus de ligne de code que vous ne le pensiez. Essayez voir !
+                </p>
+                <p>
+                    Plus fou encore supposons que vous avez un cookie existant et un jour vous décidez de vérifier quand est-ce que ce cookie vient à terme (s'expire), les fonctions natives de PHP ne permettent pas de faire ces genres de choses. br Avec <strong>fluent-cookie </strong>                    c'est très facile et fluide.
+                </p>
+                <h3>Et la sécurité survient</h3>
+                <p>Tous les cookies crées avec <strong>Fluent-cookie</strong> sont chiffrés, donc il n'est pas question que quelqu'un lit leur contenu, en tout cas pas facilement</p>
+                <p>Non seulement mais également, lorsqu'un créé est demandé, vous pouvez afficher son contenu sans peur d'être attaqué par la faille <a href="https://fr.wikipedia.org/wiki/Cross-site_scripting">XSS</a> à travers ce cookie</p>
+
+                <h3>Exemple</h3>
+                <p>
+                    Créons un cookie du nom test :
+                    <pre>
+    &lt;?php
+    use Ladis\Cookies\Cookies;            
+    require_once __DIR__.'/vendor/autoload.php'
+    <code class="language-php">
+    Cookie::create('test')
+    ->content('Le contenu de mon cookie')
+    ->expires(time() +60)
+    ->write();
+    </code>
+    </pre> C'est le minimum pour créer un cookie.
+                    <div class="alert alert-info" role="alert">
+                        <strong>Attention ! </strong> Sans la méthode write, votre cookie ne sera pas créé
+                    </div>
+                    <p>
+                        Testez !
+                        <pre><code class="language-php">
+    echo $_Cookie['test'] ;
+    //Affiche un truc du genre GWtc0HXZ4DOn+1PkpbnfQ8xFwG1xWN0Ktp+It2EjgjCwSwPCf+08DTrRZTELO7is= 
+    </code>
+    </pre> Si vous savez ce texte kachakouchou, c'est que votre cookie est bien chriffré.
+                    </p>
+                </p>
+
+                <p>
+                    Pour obtenir ce cookie, vous faites <pre><code class="language-php">$cookie = Cookies::get('test');</code></pre> <code class="language-php">$cookie</code> est un objet <code class="language-php text-danger">Ladis\Cookies\CookieMetadata</code>                    qui contient les informations utiles sur le cookie, avec le quel vous pouvez interagir avec les méthodes disponibles.
+                    <br> Par exemple, pour avoir le timesamps de quand est-ce que ce cookie va s'expirer, appellez la méthode <code class="language-php text-success">getExpires()</code>, Pour avoir le contenu du cookie utiliser la méthode <code class="language-php text-success">getContent()</code>.
+                    Voir cette <a href="#cookie-method">section</a> pour voir toutes les méthodes disponibles.
+                </p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Vous avez vu comment créer un cookie et l'obtenir, et si vous voulez le renommer, supprimer, consulter la <a href="cookies-method">liste des méthodes disponibles</a>.
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col" id="cookie-method">
+                <h3>Liste des méthodes sur un cookie</h3>
+                <p>
+                    Supposons qu'on a créé un cookie avec <code class="language-php">Cookies::create('test');</code> <br> et obtient le cookie
+
+                    <code class="language-php">$cookie = Cookies::get('test');</code> <br> Les méthodes suivantes sont valables sur le <code>$cookie</code>
+                    <div class="alert alert-warning" role="alert">
+                        Attention ! Rassurez-vous que <code>$cookie</code> n'est pas null
+                    </div>
+                    <ul>
+                        <li>
+                            <dl>
+                                <dt><code class="language-php px-3 text-success">getContent()</code></dt>
+                                <dd>
+                                    Permet d'avoir le contenu déchiffré du cookie ou
+                                </dd>
+
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt><code class="language-php px-3 text-success">getExpires()</code></dt>
+                                <dd>
+                                    Renvoie le timestamp du cookie
+                                </dd>
+
+                            </dl>
+                        </li>
+
+                        <li>
+                            <dl>
+                                <dt><code class="language-php px-3 text-success">getPath()</code></dt>
+                                <dd>
+                                    Renvoie l'url pour laquelle le cookie est valable
+                                </dd>
+
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt><code class="language-php px-3 text-success">getDomain()</code></dt>
+                                <dd>
+                                    Renvoie le domaine au nom duquel le cookie est enregistré
+                                </dd>
+
+                            </dl>
+                        </li>
+
+                        <li>
+                            <dl>
+                                <dt><code class="language-php px-3 text-success">getSecure()</code></dt>
+                                <dd>
+                                    Renvoie le statut de sécurité pour https
+                                </dd>
+
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt><code class="language-php px-3 text-success">getHttponly()</code></dt>
+                                <dd>
+                                    Renvoie le statut de http
+                                </dd>
+
+                            </dl>
+                        </li>
+
+                        <li>
+                            <dl>
+                                <dt><code class="language-php px-3 text-success">createdDate()</code></dt>
+                                <dd>
+                                    Renvoie la date de création du cookie au format "Y-M-D H:m:s"
+                                </dd>
+
+                            </dl>
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" id="cookies-method">
+                <h3 class="py-3">Liste des méthodes disponibles pour gérer le cookie</h3>
+                <ul>
+                    <li>
+                        <dl>
+                            <dt><code class="language-php px-3 text-success">create(string $name):CookieManager</code></dt>
+                            <dd>
+                                Cette méthode prend en paramètre le nom du cookie à créer.
+                                <br> et renvoie une une instance de<code class="language-php"> Ladis\Cookies\CookieManager; </code> C'est cette classe qui s'occupe de la création du cookie.
+                                <p>
+                                    Une fois la méthode <code>create()</code> est appélée, vous pouvez l'enchainer avec les méthodes suivantes
+                                    <ul>
+                                        <li> <code class="language-php"> name(string $name)</code> Accepte le nom du cookie </li>
+                                        <li> <code class="language-php"> content(string $content)</code> Accepte le contenu du cookie </li>
+                                        <li> <code class="language-php">expires(int $timesamps = 0)</code>Accepete la date d'expiration du cookie </li>
+                                        <li> <code class="language-php">path(string $path = "/")</code> Accepte l'url où le cookie enregistré sera valable </li>
+                                        <li> <code class="language-php">domain(string $domain = "")</code> Accepte le domaine auquel associé le cookie </li>
+                                        <li> <code class="language-php">secured(bool $secure = true)</code> Enregistre si le domaine est sécurisé </li>
+                                        <li> <code class="language-php">httpOnly(bool $httponly = true)</code> Rendre httponly à vrai </li>
+                                    </ul>
+                                    Et puis la méthode <code class="language-php">write():bool</code> pour enregistrer le cookie
+                                </p>
+                            </dd>
+
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><code class="language-php px-3 text-success">get(string $cookiename):CookieMetaData</code></dt>
+                            <dd>
+                                Retourne un cookie et ses informations via une instance de <code>Ladis\Cookies\CookieMetaData</code>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><code class="language-php px-3 text-success">rename(string $old, string $new)</code></dt>
+                            <dd>
+                                Retourne un cookie et ses informations via une instance de <code>Ladis\Cookies\CookieMetaData</code>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><code class="language-php px-3 text-success">all():array</code></dt>
+                            <dd>
+                                Retourne tous les cookies, créés sans ou avec <strong>fluent-cookie</strong>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><code class="language-php px-3 text-success">has(string $name):bool</code></dt>
+                            <dd>
+                                Vérifie l'existence d'un cookie
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><code class="language-php px-3 text-success">remove(string $name): boolhas(string $name):bool</code></dt>
+                            <dd>
+                                Supprime un cookie
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><code class="language-php px-3 text-success">getCookie(string $cookie): ?CookieMetaData</code></dt>
+                            <dd>
+                                Renvoie un cookie avec les métadonnées
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt><code class="language-php px-3 text-success">refresh():void</code></dt>
+                            <dd>
+                                Actualise les cookies
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-secondary">
+        <div class="container">
+            <ul class="nav">
+                <!--tips: to change the .nav alignment use .justify-content-center,.justify-content-end or use .flex-column to vertical alignment-->
+                <li class="nav-item">
+                    <a class="nav-link disabled text-light">Copyright Claudye <i class="fa fa-copyright" aria-hidden="true"></i></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="https://github.com/Claudye/fluent-cookie/blob/main/LICENSE">Licence MIT</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/all.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/prism.js"></script>
+</body>
+
+</html>
