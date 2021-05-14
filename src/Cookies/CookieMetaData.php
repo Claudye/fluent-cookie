@@ -156,4 +156,16 @@ class CookieMetaData{
          }
          return '';
     }
+
+    /**
+     * Renvoie à laquelle le cookie expire
+     *
+     * @return string|null
+     */
+    public function getDateExpires(){
+        if ($this->cookie !=null) {
+            return date("Y-m-d H:m:s", $this->getExpires());
+         }
+         return null;
+    }
 }
