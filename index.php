@@ -1,5 +1,5 @@
 <?php
-use Ladis\Cookies\Cookies;
+use Simplecode\Cookies\Cookies;
 require_once __DIR__.'/vendor/autoload.php';
 
 /**
@@ -11,8 +11,8 @@ $cookies = Cookies::create("test")
             ->path('/')
             ->secured()
             ->httpOnly()
-            ->domain('');
-            /*->write();*/
+            ->domain('')
+            ->write();
 /**
  * 
  */
@@ -24,4 +24,4 @@ $cookie->getExpires();
 /**
  * La date d'expiration du cookie
  */
-dd($cookie->getDateExpires());
+dd($cookie);

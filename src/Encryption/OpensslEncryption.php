@@ -1,6 +1,6 @@
 <?php
 
-namespace Ladis\Encryption;
+namespace Simplecode\Encryption;
 /**
  * Encrypte les données
  */

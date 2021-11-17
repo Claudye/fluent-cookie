@@ -18,10 +18,7 @@ class ComposerStaticInit81fc720f181adce97d7960746c38352b
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\VarDumper\\' => 28,
-        ),
-        'L' => 
-        array (
-            'Ladis\\' => 6,
+            'Simplecode\\' => 11,
         ),
     );
 
@@ -38,7 +35,7 @@ class ComposerStaticInit81fc720f181adce97d7960746c38352b
         array (
             0 => __DIR__ . '/..' . '/symfony/var-dumper',
         ),
-        'Ladis\\' => 
+        'Simplecode\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

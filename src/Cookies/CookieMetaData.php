@@ -1,8 +1,8 @@
 <?php
-namespace Ladis\Cookies;
+namespace Simplecode\Cookies;
 
-use Ladis\Cookies\CookieBag;
-use Ladis\Cookies\CookieMetadataResolver;
+use Simplecode\Cookies\CookieBag;
+use Simplecode\Cookies\CookieMetadataResolver;
 
 
 class CookieMetaData{

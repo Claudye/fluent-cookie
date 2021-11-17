@@ -1,7 +1,7 @@
 <?php
-namespace Ladis\Encryption;
+namespace Simplecode\Encryption;
 
-use Ladis\Encryption\OpensslEncryption;
+use Simplecode\Encryption\OpensslEncryption;
 /**
  * Façade pour l'encryption des données
  */

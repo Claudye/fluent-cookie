@@ -1,9 +1,9 @@
 <?php
-namespace Ladis\Cookies;
+namespace Simplecode\Cookies;
 
 use Exception;
-use Ladis\Cookies\CookieBag;
-use Ladis\Cookies\CookieManager;
+use Simplecode\Cookies\CookieBag;
+use Simplecode\Cookies\CookieManager;
 
 
 /**
@@ -11,7 +11,7 @@ use Ladis\Cookies\CookieManager;
  * 
  * @license MIT
  * 
- * @copyright 2021 Ladiscode | Claude Fassinou
+ * @copyright 2021 Simplecodecode | Claude Fassinou
  * Façade pour gérer les cookies
  * 
  * @method bool rename(string $old, string $new)  Renomme un cookie $old ancien nom  $new nouveau nom
@@ -65,7 +65,7 @@ class Cookies{
             return ;
         }
         
-        throw new Exception("Appelle d'une function non définie ".__CLASS__."::$method()", 1);
+        throw new Exception("Appel d'une function non définie ".__CLASS__."::$method()", 1);
         
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Ladis\Cookies;
+namespace Simplecode\Cookies;
 
 
 use Exception;
-use Ladis\Cookies\CookieMetadataResolver;
-use Ladis\Encryption\Encryption;
+use Simplecode\Cookies\CookieMetadataResolver;
+use Simplecode\Encryption\Encryption;
 
 /**
  * Fluent class pour créer un cookie

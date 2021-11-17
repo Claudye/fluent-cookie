@@ -65,7 +65,7 @@
                     Créons un cookie du nom test :
                     <pre>
     &lt;?php
-    use Ladis\Cookies\Cookies;            
+    use Simplecode\Cookies\Cookies;            
     require_once __DIR__.'/vendor/autoload.php'
     <code class="language-php">
     Cookie::create('test')
@@ -88,7 +88,7 @@
                 </p>
 
                 <p>
-                    Pour obtenir ce cookie, vous faites <pre><code class="language-php">$cookie = Cookies::get('test');</code></pre> <code class="language-php">$cookie</code> est un objet <code class="language-php text-danger">Ladis\Cookies\CookieMetadata</code>                    qui contient les informations utiles sur le cookie, avec le quel vous pouvez interagir avec les méthodes disponibles.
+                    Pour obtenir ce cookie, vous faites <pre><code class="language-php">$cookie = Cookies::get('test');</code></pre> <code class="language-php">$cookie</code> est un objet <code class="language-php text-danger">Simplecode\Cookies\CookieMetadata</code>                    qui contient les informations utiles sur le cookie, avec le quel vous pouvez interagir avec les méthodes disponibles.
                     <br> Par exemple, pour avoir le timesamps de quand est-ce que ce cookie va s'expirer, appellez la méthode <code class="language-php text-success">getExpires()</code>, Pour avoir le contenu du cookie utiliser la méthode <code class="language-php text-success">getContent()</code>.
                     Voir cette <a href="#cookie-method">section</a> pour voir toutes les méthodes disponibles.
                 </p>
@@ -191,7 +191,7 @@
                             <dt><code class="language-php px-3 text-success">create(string $name):CookieManager</code></dt>
                             <dd>
                                 Cette méthode prend en paramètre le nom du cookie à créer.
-                                <br> et renvoie une une instance de<code class="language-php"> Ladis\Cookies\CookieManager; </code> C'est cette classe qui s'occupe de la création du cookie.
+                                <br> et renvoie une une instance de<code class="language-php"> Simplecode\Cookies\CookieManager; </code> C'est cette classe qui s'occupe de la création du cookie.
                                 <p>
                                     Une fois la méthode <code>create()</code> est appélée, vous pouvez l'enchainer avec les méthodes suivantes
                                     <ul>
@@ -214,7 +214,7 @@
                         <dl>
                             <dt><code class="language-php px-3 text-success">get(string $cookiename):CookieMetaData</code></dt>
                             <dd>
-                                Retourne un cookie et ses informations via une instance de <code>Ladis\Cookies\CookieMetaData</code>
+                                Retourne un cookie et ses informations via une instance de <code>Simplecode\Cookies\CookieMetaData</code>
                             </dd>
                         </dl>
                     </li>
@@ -222,7 +222,7 @@
                         <dl>
                             <dt><code class="language-php px-3 text-success">rename(string $old, string $new)</code></dt>
                             <dd>
-                                Retourne un cookie et ses informations via une instance de <code>Ladis\Cookies\CookieMetaData</code>
+                                Retourne un cookie et ses informations via une instance de <code>Simplecode\Cookies\CookieMetaData</code>
                             </dd>
                         </dl>
                     </li>

@@ -1,11 +1,11 @@
 <?php
 
-namespace Ladis\Cookies;
+namespace Simplecode\Cookies;
 
-use Ladis\Cookies\CookieManager;
-use Ladis\Cookies\CookieMetaData;
-use Ladis\Cookies\CookieMetadataResolver;
-use Ladis\Encryption\Encryption;
+use Simplecode\Cookies\CookieManager;
+use Simplecode\Cookies\CookieMetaData;
+use Simplecode\Cookies\CookieMetadataResolver;
+use Simplecode\Encryption\Encryption;
 
 /**
  * le sac des cookies

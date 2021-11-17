@@ -1,5 +1,5 @@
 <?php
-namespace Ladis\Cookies;
+namespace Simplecode\Cookies;
 
 class CookieMetadataResolver
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Ladis\Encryption;
+namespace Simplecode\Encryption;
 
 
 class Token{
